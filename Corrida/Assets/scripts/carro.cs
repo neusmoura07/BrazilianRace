@@ -11,6 +11,8 @@ public class carro : MonoBehaviour
     float acc = 0f;
 
     Rigidbody rb;
+
+    public AnimationCurve curvaRoda;
     public AudioClip somcarro;
     public AudioSource audioCarro;
     public float maxTorque;
@@ -28,10 +30,16 @@ public class carro : MonoBehaviour
     public float somPitch;
 
     public Vector3 forcaFinal;
+
+    public GameObject centroMassa;
+
+    public float instabilidadeTravar;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        rb.centerOfMass = centroMassa.transform.localPosition;
         audioCarro.clip = somcarro;
 
     }
@@ -49,7 +57,7 @@ public class carro : MonoBehaviour
         //GUIAR
         //Entrar na lista e todos elementos vão fazer qualquer coisa, coloca um angulo na roda 
         for (int i = 0; i< guiar.Length; i++){
-            guiar[i].steerAngle = gui * 15f;
+            guiar[i].steerAngle = gui * curvaRoda.Evaluate(veloKMH);
             //adiciona uma pequena força nas rodas caso elas parem para facilitar a saida
             guiar[i].motorTorque = 1f;
         }
@@ -82,10 +90,13 @@ public class carro : MonoBehaviour
         if(acc < -0.5f)
         {
             rb.AddForce(-transform.forward * forcaTravagem);
+
+            rb.AddTorque((transform.up * instabilidadeTravar * veloKMH / 45f ) * gui);
+
             acc = 0;
         }
         //Muda a força conforme a marcha passa. Por exemplo MaxTorque tem o valor 5000 divide pela marcha atual e dar a força que o carro pode ter, quanto maior a marcha menos força tem
-        forcaFinal = transform.forward * (maxTorque / (mudancaAtual+1) + maxTorque/3f)  * acc ;
+        forcaFinal = transform.forward * (maxTorque / (mudancaAtual + 1) + maxTorque/1.85f)  * acc ;
         rb.AddForce(forcaFinal);
 
         //SOM
