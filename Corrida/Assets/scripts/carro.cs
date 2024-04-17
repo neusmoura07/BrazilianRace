@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class carro : MonoBehaviour
+public class Carro : MonoBehaviour
 {
 
     public WheelCollider[] guiar;
-
-    float gui = 0f;
-    float acc = 0f;
+    
+    public float gui = 0f;
+    public float acc = 0f;
 
     Rigidbody rb;
 
@@ -19,8 +19,8 @@ public class carro : MonoBehaviour
 
     public float forcaTravagem;
 
-    float veloKMH;
-    float rpm;
+    public float veloKMH;
+    public float rpm;
 
     public float[] racioMudancas;
     int mudancaAtual = 0;
@@ -34,6 +34,8 @@ public class carro : MonoBehaviour
     public GameObject centroMassa;
 
     public float instabilidadeTravar;
+
+    public int voltas = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,14 +44,15 @@ public class carro : MonoBehaviour
         rb.centerOfMass = centroMassa.transform.localPosition;
         audioCarro.clip = somcarro;
 
+
     }
 
     // Update is called once per frame
-    void Update()
+    
+    public void SomarVolta()
     {
-        //chama o eixo pronto feito pela unity
-        gui = Input.GetAxis("Horizontal");
-        acc = Input.GetAxis("Vertical");
+        voltas++;
+        Debug.Log("DEMOS UMA VOLTA! -" + voltas.ToString());
     }
 
     void FixedUpdate()
@@ -60,6 +63,8 @@ public class carro : MonoBehaviour
             guiar[i].steerAngle = gui * curvaRoda.Evaluate(veloKMH);
             //adiciona uma pequena força nas rodas caso elas parem para facilitar a saida
             guiar[i].motorTorque = 1f;
+
+    
         }
         //VELO E RPM
         veloKMH = rb.velocity.magnitude * 3.6f;
@@ -96,19 +101,19 @@ public class carro : MonoBehaviour
             acc = 0;
         }
         //Muda a força conforme a marcha passa. Por exemplo MaxTorque tem o valor 5000 divide pela marcha atual e dar a força que o carro pode ter, quanto maior a marcha menos força tem
-        forcaFinal = transform.forward * (maxTorque / (mudancaAtual + 1) + maxTorque/1.85f)  * acc ;
+        forcaFinal = transform.forward * (maxTorque / (mudancaAtual + 1) + maxTorque/1.25f)  * acc ;
         rb.AddForce(forcaFinal);
 
         //SOM
-        audioCarro.pitch = rpm / somPitch;
+        
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.Label(new Rect(20,20,128,32),rpm + "RPM");
         GUI.Label(new Rect(20,40,128,32), (mudancaAtual+1).ToString());
         GUI.Label(new Rect(20,60,128,32),veloKMH + "KM/H");
         GUI.Label(new Rect(20,80,128,32),forcaFinal.magnitude.ToString());
         
-    }
+    }*/
 }
