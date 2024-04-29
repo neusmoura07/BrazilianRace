@@ -123,6 +123,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &3342937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1201378892362450667, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_Name
+      value: carro1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639674003386853152, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: volta
+      value: 
+      objectReference: {fileID: 1081366325}
+    - target: {fileID: 2639674003386853152, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: posicao
+      value: 
+      objectReference: {fileID: 923440982}
+    - target: {fileID: 2639674003386853152, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: veloKMH
+      value: 
+      objectReference: {fileID: 1920623505}
+    - target: {fileID: 2639674003386853152, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: agulhaRPM
+      value: 
+      objectReference: {fileID: 2131642740}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.018795
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.83112144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7024975
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.64278764
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7660445
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352164693443132714, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10c32e5ce98b9fb46aca1f2cb6c2ba62, type: 3}
 --- !u!1 &140708816
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +962,7 @@ GameObject:
   - component: {fileID: 923440983}
   - component: {fileID: 923440982}
   m_Layer: 5
-  m_Name: colocacao
+  m_Name: Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,7 +1072,7 @@ GameObject:
   - component: {fileID: 1081366326}
   - component: {fileID: 1081366325}
   m_Layer: 5
-  m_Name: voltas
+  m_Name: Volta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,7 +1288,7 @@ GameObject:
   - component: {fileID: 1195915707}
   - component: {fileID: 1195915706}
   m_Layer: 5
-  m_Name: Painel
+  m_Name: RPMPainel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1339,7 +1412,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229956067}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 495d35d7d50191b46852a6bf6673346c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1575,7 +1648,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445293858}
-  - component: {fileID: 1445293857}
   m_Layer: 0
   m_Name: SPAWNS
   m_TagString: Untagged
@@ -1583,22 +1655,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1445293857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445293856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dfb18b83ea51264ab32142590fbf7e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carrosAI:
-  - {fileID: 5408122897187882663, guid: fd54c64fe5a30d44098aff8c66858e34, type: 3}
-  carrosJogador:
-  - {fileID: 6625918733146028052, guid: eb620702ae79e1e41b900202ed8f2343, type: 3}
 --- !u!4 &1445293858
 Transform:
   m_ObjectHideFlags: 0
@@ -2160,8 +2216,8 @@ RectTransform:
   m_Children:
   - {fileID: 1599656345}
   - {fileID: 923440981}
-  - {fileID: 1081366324}
   - {fileID: 1195915705}
+  - {fileID: 1081366324}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2221,7 +2277,7 @@ GameObject:
   - component: {fileID: 1920623506}
   - component: {fileID: 1920623505}
   m_Layer: 5
-  m_Name: Velocidade
+  m_Name: Velo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2432,7 +2488,7 @@ GameObject:
   - component: {fileID: 2131642742}
   - component: {fileID: 2131642741}
   m_Layer: 5
-  m_Name: Ponteiro
+  m_Name: Agulha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6223,3 +6279,4 @@ SceneRoots:
   - {fileID: 823292904454658076}
   - {fileID: 1445293858}
   - {fileID: 1690808908}
+  - {fileID: 3342937}

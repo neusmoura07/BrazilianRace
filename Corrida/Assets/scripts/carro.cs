@@ -108,12 +108,12 @@ public class Carro : MonoBehaviour
         
     }
 
-    /*void OnGUI()
+    void OnGUI()
     {
         GUI.Label(new Rect(20,20,128,32),rpm + "RPM");
         GUI.Label(new Rect(20,40,128,32), (mudancaAtual+1).ToString());
         GUI.Label(new Rect(20,60,128,32),veloKMH + "KM/H");
         GUI.Label(new Rect(20,80,128,32),forcaFinal.magnitude.ToString());
-        
-    }*/
+    
+    }
 }
