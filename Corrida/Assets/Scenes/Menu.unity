@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dinheiro: 5000
-  numVoltas: 3
+  numVoltas: 1
+  existe: 0
 --- !u!4 &1233443245
 Transform:
   m_ObjectHideFlags: 0

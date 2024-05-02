@@ -7,7 +7,7 @@ public class Controlador : MonoBehaviour
 
     public int dinheiro;
 
-    public int numVoltas = 3;
+    public int numVoltas = 1;
 
     public bool existe = false;
     private void Awake()

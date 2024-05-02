@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour
 
        if (cHUD != null)
        {
-        cHUD.ReceberPosicao(RetornarPosicao(c, c.voltas));
+        cHUD.ReceberPosicao(RetornarPosicao(c, c.voltas)+1);
        }
 
     }

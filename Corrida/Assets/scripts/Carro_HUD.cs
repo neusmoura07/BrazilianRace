@@ -28,6 +28,10 @@ public class Carro_HUD : MonoBehaviour
 
     void FixedUpdate()
         {
+            if (!setup)
+            {
+                return;
+            }
             
             veloKMH.text = string.Format("{0:0}",carro.veloKMH) + "KM/H";
 
@@ -50,7 +54,7 @@ public class Carro_HUD : MonoBehaviour
             this.pos = pos;
         }
 
-        public void ReceberHUD(RectTransform rect, Text velo,Text pos, Text volta, int numVoltas)
+        public void ReceberHUD(RectTransform rect, Text velo, Text pos, Text volta, int numVoltas)
         {
             agulhaRPM = rect;
             veloKMH = velo;
