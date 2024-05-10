@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class FimCorrida : MonoBehaviour
 {
@@ -17,17 +17,11 @@ public class FimCorrida : MonoBehaviour
     public void MostrarPainel(int posicao)
     {
         painel.SetActive(true);
-        painel.transform.GetChild(2).GetComponent<Text>().text = posicao+"º";
-        painel.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(delegate
-        {
-
-            if (posicao == 1)
+        painel.transform.GetChild(0).GetComponent<Text>().text = posicao+"º";
+        if (posicao == 1)
             {
                 controlador.dinheiro += 5000;
             }
-            SceneManager.LoadScene(0);
-            
-        });
     }
     
 }
