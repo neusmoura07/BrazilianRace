@@ -19,6 +19,7 @@ public class Carro_HUD : MonoBehaviour
     bool setup = false;
 
     public int pos;
+    public Text marcha;
 
     void Start()
     {
@@ -27,26 +28,52 @@ public class Carro_HUD : MonoBehaviour
     }
 
     void FixedUpdate()
+    {
+        if (!setup)
         {
-            if (!setup)
-            {
-                return;
-            }
-            
-            veloKMH.text = string.Format("{0:0}",carro.veloKMH) + "KM/H";
-
-            Vector3 rotAgulha = agulhaRPM.rotation.eulerAngles;
-
-            newR = Mathf.Lerp(newR, carro.rpm, 0.3f); 
-
-            rotAgulha.z = ((newR*180f)/carro.maxRPM)* -1f ;
-
-            agulhaRPM.eulerAngles = rotAgulha;
-
-            volta.text = (carro.voltas+1).ToString() + "/" + numVoltas;
-
-
+            return;
         }
+
+        // Atualiza a velocidade do texto
+        veloKMH.text = string.Format("{0:0}", carro.veloKMH) + "KM/H";
+
+        // Obter a velocidade máxima da marcha atual
+        float velocidadeMaximaAtual = carro.limitesDeVelocidade[carro.mudancaAtual];
+
+        // Suaviza a rotação da agulha
+        newR = Mathf.Lerp(newR, carro.veloKMH, 0.3f);
+
+        // Calcula o ângulo da agulha baseado na velocidade atual e velocidade máxima da marcha atual
+        float rotacaoAgulhaZ = ((newR * 150) / velocidadeMaximaAtual) * -1f;
+
+        // Limita a rotação da agulha entre um mínimo e um máximo
+        float anguloMinimo = -190f; // Ajuste conforme necessário
+        float anguloMaximo = 60f;    // Ajuste conforme necessário
+        rotacaoAgulhaZ = Mathf.Clamp(rotacaoAgulhaZ, anguloMinimo, anguloMaximo);
+
+        // Atualiza a rotação da agulha
+        Vector3 rotAgulha = agulhaRPM.rotation.eulerAngles;
+        rotAgulha.z = rotacaoAgulhaZ;
+        agulhaRPM.eulerAngles = rotAgulha;
+
+        // Atualiza o texto de voltas e marcha
+        volta.text = (carro.voltas).ToString() + "/" + numVoltas;
+        marcha.text = (carro.mudancaAtual + 1).ToString();
+
+        // Verifica se a velocidade está na zona vermelha
+        if (carro.veloKMH >= velocidadeMaximaAtual * 0.9f)
+        {
+            // Mudar a cor do texto da velocidade para vermelho
+            veloKMH.color = Color.red;
+        }
+        else
+        {
+            // Manter a cor padrão
+            veloKMH.color = Color.black;
+        }   
+    }
+
+        
 
         public void ReceberPosicao(int pos)
         {
@@ -54,13 +81,14 @@ public class Carro_HUD : MonoBehaviour
             this.pos = pos;
         }
 
-        public void ReceberHUD(RectTransform rect, Text velo, Text pos, Text volta, int numVoltas)
+        public void ReceberHUD(RectTransform rect, Text velo, Text pos, Text volta, int numVoltas, Text marcha)
         {
             agulhaRPM = rect;
             veloKMH = velo;
             posicao = pos;
             this.volta = volta;
             this.numVoltas = numVoltas;
+            this.marcha = marcha;
             setup = true;
         }
     

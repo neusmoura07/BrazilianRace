@@ -6,15 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: 988651c5a57d2b141b9e575a4f36d7bd
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: bb2df3baba2cd7e45bcf7375220e3276
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: cf0ccc9456856c34e84ffdd1a338973c
   - enabled: 1
     path: Assets/Scenes/Mapa1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/New Scene.unity
-    guid: 810c9aa7d398f4f4b82180fd973b2e97
   - enabled: 1
     path: Assets/Scenes/Mapa2.unity
-    guid: f11a6d4f1e0ae334ebfde3ebfb6ea371
+    guid: 777a41b74f9de9345a5b999c769228b8
+  - enabled: 1
+    path: Assets/Scenes/Mapa3.unity
+    guid: 760c715851bb70e4ba523d8addd2224d
+  - enabled: 1
+    path: Assets/Scenes/MapaArcadeTeste.unity
+    guid: 020c55b3855f6d4489b4ab2b0dbf857f
+  - enabled: 1
+    path: Assets/Scenes/TelaCampanha.unity
+    guid: 8bbe9666e7130dd46ab8ae5b15a92254
+  - enabled: 1
+    path: Assets/Scenes/Config.unity
+    guid: 24803bbce18c2bb4d97610b9fa62c1a1
+  - enabled: 1
+    path: Assets/Scenes/Carregamento.unity
+    guid: f764dea0fe26671478803bd45857e03d
+  - enabled: 1
+    path: Assets/Scenes/sub-config/velocimetro.unity
+    guid: a2bcddb2bdee1f04dad0e5ca1b79a713
+  - enabled: 1
+    path: Assets/Scenes/sub-config/controles.unity
+    guid: 215454ddf50157c448e6018dc51e5983
+  - enabled: 1
+    path: Assets/Scenes/sub-config/idioma.unity
+    guid: 1a1a7990fcd847542a58537c9fdd9622
+  - enabled: 1
+    path: Assets/Scenes/notifi.unity
+    guid: dcb5d2d20f0845d4f9d8e37abf328390
   m_configObjects: {}

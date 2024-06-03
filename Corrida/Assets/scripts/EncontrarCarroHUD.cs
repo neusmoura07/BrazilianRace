@@ -9,6 +9,7 @@ public class EncontrarCarroHUD : MonoBehaviour
    public Text textoKMH;
    public Text pos;
    public Text volta;
+   public Text marcha;
 
    Controlador controlador;
 
@@ -16,6 +17,6 @@ public class EncontrarCarroHUD : MonoBehaviour
     private void Start()
     {
         controlador = FindObjectOfType<Controlador>();
-        FindObjectOfType<Carro_HUD>().ReceberHUD(rect, textoKMH, pos, volta,controlador.numVoltas);
+        FindObjectOfType<Carro_HUD>().ReceberHUD(rect, textoKMH, pos, volta,controlador.numVoltas, marcha);
     }
 }

@@ -19,5 +19,11 @@ public class Carro_Input : MonoBehaviour
         //chama o eixo pronto feito pela unity
         carro.gui = Input.GetAxis("Horizontal");
         carro.acc = Input.GetAxis("Vertical");
+        
+        if (Input.GetKey(KeyCode.Space))
+    {
+        // Define o eixo vertical para mover para trás
+        carro.acc = -2f;
+    }
     }
 }

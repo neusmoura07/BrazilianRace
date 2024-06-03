@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ControladorCena : MonoBehaviour
 {
-    public void IniciarNivel(int id)
+    public void IniciarNivel(int sceneName)
     {
-        SceneManager.LoadScene(id);
+        Time.timeScale = 1f; // Despausa o jogo
+        GlobalLoadManager.Instance.LoadScene(sceneName);
+    }
+
+    public void FecharJogo()
+    {
+        Debug.Log("Fechando o jogo...");
+        Application.Quit();
     }
 }

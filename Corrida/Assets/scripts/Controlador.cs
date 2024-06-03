@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controlador : MonoBehaviour
 {
 
-    public int dinheiro;
+    //public int dinheiro;
 
     public int numVoltas = 1;
 

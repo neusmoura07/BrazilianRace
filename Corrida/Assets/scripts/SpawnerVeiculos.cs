@@ -6,20 +6,37 @@ public class SpawnerVeiculos : MonoBehaviour
 {
     public GameObject[] carrosAI;
     public GameObject[] carrosJogador;
+    private List<int> indicesCarrosDisponiveis = new List<int>();
 
 
     private void Awake()
     {
-        for(int i =0; i < transform.childCount; i++)
+        // Preencher a lista com os índices dos carros disponíveis
+        for (int i = 0; i < carrosAI.Length; i++)
         {
-            if (i == transform.childCount-1)
-            {
-                Instantiate(carrosJogador[0], transform.GetChild(i).transform.position, Quaternion.Euler(transform.GetChild(i).localEulerAngles));
+            indicesCarrosDisponiveis.Add(i);
+        }
 
-                //INSTANCIAR JOGADOR EM ULTIMO
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (i == transform.childCount - 1)
+            {
+                // Spawn do carro do jogador
+                int indexCarro = Random.Range(0, carrosJogador.Length);
+                Instantiate(carrosJogador[indexCarro], 
+                            transform.GetChild(i).position, 
+                            Quaternion.Euler(transform.GetChild(i).localEulerAngles));
             }
-            else{
-                Instantiate(carrosAI[0], transform.GetChild(i).transform.position, Quaternion.Euler(transform.GetChild(i).localEulerAngles));
+            else
+            {
+                // Spawn de um carro AI aleatório
+                int indexCarro = Random.Range(0, indicesCarrosDisponiveis.Count);
+                Instantiate(carrosAI[indicesCarrosDisponiveis[indexCarro]], 
+                            transform.GetChild(i).position, 
+                            Quaternion.Euler(transform.GetChild(i).localEulerAngles));
+                
+                // Remover o índice correspondente ao carro spawnado
+                indicesCarrosDisponiveis.RemoveAt(indexCarro);
             }
         }
     }

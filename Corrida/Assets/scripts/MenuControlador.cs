@@ -16,13 +16,13 @@ public class MenuControlador : MonoBehaviour
     private void Start()
     {
         controlador = FindObjectOfType< Controlador>();
-        AtualizarDinheiro();
+        //AtualizarDinheiro();
     }
 
-    public void AtualizarDinheiro()
+    /*public void AtualizarDinheiro()
     {
         dinheiroText.text = "Dinheiro: "+ controlador.dinheiro;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
